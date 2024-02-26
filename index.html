@@ -15,17 +15,17 @@
             display: none;
         }
     </style>
+    <div id="timer">
+        
+    </div>
     <div id="main-container">
         <div class="d-flex flex-column justify-content-center align-items-center bg-dark">
-            <h1 class="bg-light m-5">Hello, world!</h1>
+            <h1 class="bg-light m-5">Html Quiz</h1>
             <div class="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1696023169341-294108cf3bdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60"
-                    class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" id="btn" class="btn btn-primary">Start Quiz</a>
+                    <div class="button-container">
+                        <a href="#" id="btn" class="btn btn-primary">Start Quiz</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,56 +37,15 @@
 
         </section>
     </div>
+    <div id="end">
+        <h2 id="score-display"></h2>
+        <input id="score" type="text" />
+        <button id="endbtn" class="btn btn-primary">Submit</button>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-        var mainContainer = document.getElementById("main-container");
-        var btnEl = document.getElementById("btn");
-        var optionsContainer = document.getElementById("options");
-        var questEl = document.getElementById("question");
-        var questionsContainer = document.querySelector(".questions-container");
-        var currIndex = 0;
-
-        var questions = [
-            {
-                question: "What is JavaScript?",
-                options: ["HTML", "CSS", "Program Lang", "jQuery"],
-                answer: "Program Lang"
-            },
-            {
-                question: "What is HTML?",
-                options: ["HTML", "CSS", "Program Lang", "HyperTech ML"],
-                answer: "HyperTech ML"
-            },
-            {
-                question: "What is CSS?",
-                options: ["HTML", "Cascade", "Program Lang", "jQuery"],
-                answer: "Cascade"
-            }
-        ]
-
-        btnEl.addEventListener("click", dipslayQuestion);
-
-       function dipslayQuestion() {
-        optionsContainer.innerHTML = "";
-        mainContainer.style.display = "none";
-        questionsContainer.style.display = "block";
-        questEl.textContent = questions[currIndex].question;
-        var choicesEl = questions[currIndex].options;
-        for (let i = 0; i < choicesEl.length; i++) {
-            var btn = document.createElement("button");
-            btn.setAttribute("class", "choices-btn");
-            btn.innerHTML = choicesEl[i];
-            btn.onclick = displayOptions;
-            optionsContainer.appendChild(btn);
-        }
-       }
-
-       function displayOptions(event) {
-            console.log(event.target.innerHTML);
-            currIndex++;
-            dipslayQuestion()
-       }
-
+    <script src="./server.js">
+        
+   
     </script>
 </body>
 
